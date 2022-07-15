@@ -135,3 +135,29 @@ input.apple-switch {
             border: 1px solid black;
             font-size: 15px;
         }
+        /*  afiche */
+        .connexion1{
+            position: absolute;
+            left: 53%;
+            top: 20%;
+            padding-left: 60px;
+            border: 1px solid black;
+            border-radius: 3px;
+            width: 25vw;
+            height: 54vh;
+            box-shadow: 3px 2px 3px gray; 
+            background-color: white;
+            transition: 2s;
+            
+            }
+
+            th{
+                font-size: 20px;
+                padding: 8px;
+            }
+            tr{
+                font-size: 15px;
+                padding: 8px; 
+                text-align: center;
+            }
+            
