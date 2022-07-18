@@ -36,17 +36,31 @@ router.post('/inscription', function (req, res) {
             res.redirect('/connexion')
         }else{
             console.log('errreur',erreur);
-        }
-        
-     })
-    
-
-
-
-
-
-   
+        }      
+     })  
 })
+
+ router.post('/edit',(req,res)=>{
+  let param=[
+    req.body.nom,
+    req.body.adresse,
+    req.body.password,
+    req.body.telephone,
+    req.query.id
+  ]
+ con.query('UPDATE users SET ? WHERE id= ?',param,(erreur,resultat)=>{
+    res.redirect('/affiche');
+   })
+})
+
+ router.get('/delete',function(req,res){
+
+   con.query ( "DELETE FROM users WHERE id=? ",req.query.id,(erreur,resultat)=>{
+     res.redirect('/affiche');
+   }) 
+
+ })
+
 
 
 router.get('/connexion', function (req, res) {
