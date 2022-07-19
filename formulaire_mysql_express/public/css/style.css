@@ -2,10 +2,7 @@
     margin: 0;
     padding: 0;
 }
-.contener{
-   
-    
-}
+
 img{
     width: 33vw;
     height: 55vh;
@@ -18,7 +15,7 @@ img{
          left: 20%;
     z-index: 1;
 }
-input.apple-switch {
+/* input.apple-switch {
     position: absolute;
     z-index: 3;
     left: 45%;
@@ -30,9 +27,9 @@ input.apple-switch {
     border: 1px solid #D9DADC;
     border-radius: 50px;
     box-shadow: inset -20px 0 0 0 #fff;
-  }
+  } */
   
-  input.apple-switch:after {
+  /* input.apple-switch:after {
     content: "";
     position: absolute;
     top: 1px;
@@ -47,34 +44,36 @@ input.apple-switch {
   input.apple-switch:checked {
     box-shadow: inset 20px 0 0 0 #4ed164;
     border-color: #4ed164;
-  }
+  } */
   
   input.apple-switch:checked:after {
     left: 20px;
     box-shadow: -2px 4px 3px rgba(0,0,0,0.05);
   }
 .inscription{
- 
   
-    
     left: 53%;
     top: 20%;
-    padding-left: 60px;
     border: 1px solid black;
-    border-radius: 3px;
-    width: 25vw;
+    width: 23%;
     height: 54vh;
     box-shadow: 2px 1px 3px  gray;
     position: absolute;
     background-color: white;
     transition: 2s;
+    display: flex;
+   flex-direction: column;
+   justify-content:space-between;
+    
     
     }
-
+ .inscr{  
+  
+ }
 
     h1{
         padding-bottom: 5px;
-        font-size: 50px;
+        font-size: 25px;
     }
     p{
         font-size: 20px;
@@ -82,7 +81,7 @@ input.apple-switch {
     }
     input{
         padding: 15px;
-        width: 82%;
+        width: 80%;
         height: 15px;
         margin-bottom: 10px;
         border-radius: 10px;
@@ -90,16 +89,15 @@ input.apple-switch {
         font-size: 15px;
     }
     button{
-        position: absolute;
+        padding: 10px;
         bottom: 2%;
-        padding: 15px;
-        width: 80%;
-        right: 55px;
+        width: 90%;
         border-radius: 8px ;
         border: 1px solid rgb(78, 221, 46,0.5);
         color: white;
         font-size: 25px;
         background-color: rgb(78, 221, 46,0.5);
+        margin-bottom: 10px;
     
     }
     button:hover{
@@ -114,7 +112,7 @@ input.apple-switch {
         top: 20%;
         padding-left: 60px;
         border: 1px solid black;
-        border-radius: 3px;
+       
         width: 25vw;
         height: 54vh;
         box-shadow: 3px 2px 3px gray; 
@@ -148,6 +146,7 @@ input.apple-switch {
             box-shadow: 3px 2px 3px gray; 
             background-color: white;
             transition: 2s;
+            display: block;
             
             }
 
@@ -160,4 +159,19 @@ input.apple-switch {
                 padding: 8px; 
                 text-align: center;
             }
+            .modification{
+            position: absolute;
+            left: 53%;
+            top: 20%;
+            padding-left: 60px;
+            border: 1px solid black;
+            border-radius: 3px;
+            width: 25vw;
+            height: 54vh;
+            box-shadow: 3px 2px 3px gray; 
+            background-color: white;
+            transition: 2s;
+            display: none;
+            }
+            
             

@@ -40,17 +40,36 @@ router.post('/inscription', function (req, res) {
      })  
 })
 
- router.post('/edit',(req,res)=>{
-  let param=[
-    req.body.nom,
-    req.body.adresse,
-    req.body.password,
-    req.body.telephone,
-    req.query.id
-  ]
- con.query('UPDATE users SET ? WHERE id= ?',param,(erreur,resultat)=>{
-    res.redirect('/affiche');
-   })
+//  router.post('/edit',(req,res)=>{
+//   let param=[
+//     req.body.nom,
+//     req.body.adresse,
+//     req.body.password,
+//     req.body.telephone,
+//     req.query.id
+//   ]
+//  con.query('UPDATE users SET ? WHERE id= ?',param,(erreur,resultat)=>{
+//     res.redirect('/affiche');
+//    })
+// })
+// router.get('/edit',(req,res)=>{
+// res.render('affiche')
+
+// })
+
+router.post('/update',(req,res)=>{
+  console.log(req.body);
+  for (field in req.body){
+    if (req.body[field] !== '' && field !== 'id'){
+      con.query(`UPDATE \`users\` SET \`${field}\` = '${req.body[field]}' WHERE \`users\`.\`id\` = 4`, (err, result)=>{
+        console.log("result")
+        if (err) throw err
+        else res.render("affiche", {
+          resultat: result
+        })
+      })
+    }
+  }
 })
 
  router.get('/delete',function(req,res){
