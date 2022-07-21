@@ -40,37 +40,29 @@ router.post('/inscription', function (req, res) {
      })  
 })
 
-//  router.post('/edit',(req,res)=>{
-//   let param=[
-//     req.body.nom,
-//     req.body.adresse,
-//     req.body.password,
-//     req.body.telephone,
-//     req.query.id
-//   ]
-//  con.query('UPDATE users SET ? WHERE id= ?',param,(erreur,resultat)=>{
-//     res.redirect('/affiche');
-//    })
-// })
-// router.get('/edit',(req,res)=>{
-// res.render('affiche')
+ router.post('/edit',(req,res)=>{
+  console.log(req.body,'cette information');
+const param=[req.body.nom,req.body.adresse,req.body.password,req.body.telephone,req.body.id]
 
-// })
-
-router.post('/update',(req,res)=>{
-  console.log(req.body);
-  for (field in req.body){
-    if (req.body[field] !== '' && field !== 'id'){
-      con.query(`UPDATE \`users\` SET \`${field}\` = '${req.body[field]}' WHERE \`users\`.\`id\` = 4`, (err, result)=>{
-        console.log("result")
-        if (err) throw err
-        else res.render("affiche", {
-          resultat: result
-        })
-      })
-    }
-  }
+ con.query('UPDATE users SET nom=?,adresse=?, telephone=?,password=? WHERE id= ?',param,(erreur,resultat)=>{
+  if(resultat){
+    res.redirect('/affiche');
+  }else{
+    console.log(erreur,'erreur')
+  }   
+   })
 })
+router.get('/edit/:id',(req,res)=>{
+  console.log('req.params.id',req.params.id);
+   con.query("SELECT * FROM users where id=?",req.params.id,(err,resul)=>{
+    if (resul) {
+      res.render('page',{resultat:resul})
+    } else {
+      console.log("resuly",err);
+    }     
+   })
+})
+
 
  router.get('/delete',function(req,res){
 

@@ -8,18 +8,23 @@
 </head>
 <body>
     <div class="modification">
-        <form action="">
-       
+        
+        <form action="/edit" method="POST">
+            <%resultat%>
+            <% for(let i=0 ;i<resultat.length; i++) {%>
          <h1>connectez vous</h1>
   
           <p>Nom</p>
-          <input type="text"  name="nom">
+          <input type="text"  name="nom" value="<%= resultat[i].nom%>">
           <p>numero</p>
-          <input type="tel"  name="telephone">
+          <input type="tel"  name="telephone" value="<%= resultat[i].telephone %> ">
           <p>mot de passe</p>
-          <input type="password" placeholder="saisir mot de passe" name="password">
+          <input type="password" placeholder="saisir mot de passe" name="password" value="<%= resultat[i].password%> ">
+          <input type="hidden" name="id" value="<%= resultat[i].id %> ">   
+          <input type="hidden" name="adresse" value="<%= resultat[i].adresse %> ">   
 
           <button type='submit' >modification</button>
+          <%}%>
         </form>
        </div>
 

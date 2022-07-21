@@ -42,11 +42,11 @@
                 <tbody>
                   <%resultat%>
                   <% for(let i=0 ;i<resultat.length; i++) {%>
-                  <tr id=<%= resultat[i].id %> >
+                  <tr>
                     <td><%=resultat[i].nom %></td>
                     <td><%=resultat[i].adresse %></td>
                     <td><%=resultat[i].telephone%></td>
-                    <td id="edit"> <i class="fa-solid fa-pen"></i></td>
+                    <td> <a href="/edit/<%= resultat[i].id %>"><i class="fa-solid fa-pen"></i></a></td>
                     <td><a href="/delete?id=<%= resultat[i].id %>" onclick="return confirm('are you sure ?')"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
                   <%}%>
@@ -54,23 +54,7 @@
               </table>
             <h1></h1> 
          </div>
-         <div id="page"></div>
-        
-         <div class="modification">
-          <form action="/update" method="post">
-         
-           <h1>modification</h1>
-           <input id="input" type="text" name="id">
-            <p>Nom</p>
-            <input type="text"  name="nom">
-            <p>numero</p>
-            <input type="tel"  name="telephone">
-            <p>mot de passe</p>
-            <input type="password" placeholder="saisir mot de passe" name="password">
-  
-            <button type='submit' >modification</button>
-          </form>
-         </div>
+          
         
      </div> 
       <script src="javascript/script.js"></script>
